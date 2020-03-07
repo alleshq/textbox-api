@@ -31,7 +31,7 @@ sequelize.Document = sequelize.define("document", {
         allowNull: false
     },
     content: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
     },
     markdown: {
