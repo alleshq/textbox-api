@@ -3,8 +3,6 @@ module.exports = (req, res) => {
         id: req.user.id,
         username: req.user.username,
         name: req.user.name,
-        nickname: req.user.nickname,
-        about: req.user.about,
-        plus: req.user.plus
+        nickname: req.user.nickname
     });
 };
