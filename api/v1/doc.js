@@ -10,7 +10,8 @@ module.exports = async (req, res) => {
         content: doc.content,
         author: {
             id: doc.author.id,
-            username: doc.author.username
+            username: doc.author.username,
+            plus: doc.author.plus
         },
         createdAt: doc.createdAt,
         editedAt: doc.updatedAt.getTime() !== doc.createdAt.getTime() ? doc.updatedAt : null,
