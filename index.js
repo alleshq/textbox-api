@@ -17,8 +17,8 @@ alert("hi");
 window.location.href = "https://abaer.dev";
 doThing(true, null);
 \`\`\``,
-        markdown: false,
-        highlight: true
+        markdown: true,
+        highlight: false
     });
     //Express Listen
     app.listen(8081, async () => {
