@@ -18,6 +18,8 @@ module.exports = async (req, res) => {
                 [Sequelize.Op.gte]: since
             }
         }
+    }, {
+        paranoid: false
     });
     if (recentDocs >= 5) return res.status(429).json({err: "cooldown"});
 
