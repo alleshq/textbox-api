@@ -19,7 +19,8 @@ module.exports = async (req, res) => {
             }
         }
     });
-    if (recentDocs.length > 5) return res.status(429).json({err: "cooldown"});
+    console.log(recentDocs);
+    if (recentDocs > 5) return res.status(429).json({err: "cooldown"});
 
     //Create Document
     const doc = await db.Document.create({
