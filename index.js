@@ -1,8 +1,29 @@
 //Express
 const express = require("express");
 const app = express();
-app.listen(8081, () => {
-    console.log("Listening on Express");
+
+//Database
+const db = require("./util/db");
+db.sync({force: true}).then(() => {
+    db.Document.create({
+        id: "c0b22c8f-c91e-468e-97c2-eb194b4954ee",
+        code: "69abwj",
+        user: "00000000-0000-0000-0000-000000000000",
+        name: "Hello World",
+        content:
+`hello world. this is the first document on textbox.
+\`\`\`js
+alert("hi");
+window.location.href = "https://abaer.dev";
+doThing(true, null);
+\`\`\``,
+        markdown: false,
+        highlight: true
+    });
+    //Express Listen
+    app.listen(8081, async () => {
+        console.log("Listening on Express");
+    });
 });
 
 //Body Parser
