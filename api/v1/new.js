@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     //Parameters
     if (typeof req.body.title !== "string" || typeof req.body.content !== "string" || typeof req.body.markdown !== "boolean" || typeof req.body.highlight !== "boolean") return res.status(400).json({err: "invalidBodyParameters"});
     if (req.body.title.trim().length < 3 || req.body.title.length > 100) return res.status(400).json({err: "titleLength"});
-    if (req.body.content.trim().length < 10 || req.body.content.length > 10000) return res.status(400).json({err: "contentLength"});
+    if (req.body.content.trim().length < 10 || req.body.content.length > 20000) return res.status(400).json({err: "contentLength"});
 
     //Ratelimiting
     const since = new Date(new Date().getTime() - 1000 * 60);
