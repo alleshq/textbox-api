@@ -1,4 +1,5 @@
 const db = require("../../util/db");
+const config = require("../../config");
 const Sequelize = require("sequelize");
 const uuid = require("uuid/v4");
 const randomString = require("randomstring").generate;
@@ -6,8 +7,8 @@ const randomString = require("randomstring").generate;
 module.exports = async (req, res) => {
     //Parameters
     if (typeof req.body.title !== "string" || typeof req.body.content !== "string" || typeof req.body.markdown !== "boolean" || typeof req.body.highlight !== "boolean") return res.status(400).json({err: "invalidBodyParameters"});
-    if (req.body.title.trim().length < 3 || req.body.title.length > 100) return res.status(400).json({err: "titleLength"});
-    if (req.body.content.trim().length < 10 || req.body.content.length > 20000) return res.status(400).json({err: "contentLength"});
+    if (req.body.title.trim().length < config.inputBounds.title.min || req.body.title.length > config.inputBounds.title.max) return res.status(400).json({err: "titleLength"});
+    if (req.body.content.trim().length < config.inputBounds.content.min || req.body.content.length > config.inputBounds.content.max) return res.status(400).json({err: "contentLength"});
 
     //Ratelimiting
     const since = new Date(new Date().getTime() - 1000 * 60);
