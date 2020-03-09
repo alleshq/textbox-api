@@ -16,7 +16,8 @@ module.exports = sequelize;
 sequelize.Document = sequelize.define("document", {
     id: {
         type: Sequelize.UUID,
-        primaryKey: true
+        primaryKey: true,
+        allowNull: false
     },
     code: {
         type: Sequelize.STRING,
