@@ -10,7 +10,7 @@ module.exports = {
 		},
 		content: {
 			min: 10,
-			max: 20000
+			max: 25000
 		}
 	}
 };
